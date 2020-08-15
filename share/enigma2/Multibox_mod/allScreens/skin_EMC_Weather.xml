@@ -1,0 +1,250 @@
+<skin>
+<!-- EMC_weather -->
+<screen name="EMCMediaCenter" position="-160,-25" title="MoviePlayer" backgroundColor="transparent" flags="wfNoBorder" size="1920,1080">
+  <widget source="session.CurrentService" render="Picon" alphatest="blend" position="14,925" size="280,144" transparent="0" zPosition="1">
+    <convert type="AMB_MovieReference" />
+  </widget>
+  <widget source="session.CurrentService" render="AMB_PiconUni3" path="Multibox_mod/test/video" position="1034,794" size="90,45" alphatest="blend">
+    <convert type="AMB_Base">VideoCodec</convert>
+  </widget>
+  <ePixmap alphatest="blend" pixmap="Multibox_mod/menu/spcoverframe.png" position="26,461" size="202,291" zPosition="1" />
+  <ePixmap alphatest="blend" pixmap="Multibox_mod/buttons/key_9.png" position="1539,1040" size="35,35" zPosition="1" />
+  <ePixmap alphatest="blend" pixmap="Multibox_mod/buttons/key_6.png" position="1502,1040" size="35,35" zPosition="1" />
+  <ePixmap alphatest="blend" pixmap="Multibox_mod/buttons/key_3.png" position="1465,1040" size="35,35" zPosition="1" />
+  <ePixmap alphatest="blend" pixmap="Multibox_mod/icons/player/ico_mp_forward.png" position="1044,995" size="60,60" zPosition="1" />
+  <ePixmap alphatest="blend" pixmap="Multibox_mod/icons/player/ico_mp_pause.png" position="969,994" size="60,60" zPosition="1" />
+  <ePixmap alphatest="blend" pixmap="Multibox_mod/icons/player/ico_mp_play.png" position="892,994" size="60,60" zPosition="1" />
+  <ePixmap alphatest="blend" pixmap="Multibox_mod/icons/player/ico_mp_stop.png" position="819,992" size="60,60" zPosition="1" />
+  <ePixmap alphatest="blend" pixmap="Multibox_mod/icons/player/ico_mp_rewind.png" position="746,994" size="60,60" zPosition="1" />
+  <ePixmap position="38,850" zPosition="2" size="200,70" alphatest="blend" pixmap="Multibox_mod/icons/media_emc.png" />
+  <eLabel text="Uhr" font="NotoSans-Bold; 32" position="1409,995" size="88,40" halign="left" backgroundColor="black" transparent="1" borderWidth="3" borderColor="bluelabel" />
+  <eLabel text="endet um:" font="NotoSans-Bold; 32" position="1129,993" size="182,40" halign="right" backgroundColor="black" transparent="1" borderWidth="3" borderColor="#fec000" />
+  <ePixmap pixmap="Multibox_mod/menu/infobar_blue_flipclock_Timeshift.png" position="0,783" zPosition="-1" size="1920,300" />
+  <widget backgroundColor="black" font="NotoSans-Bold; 32" foregroundColor="white" halign="left" position="568,870" render="Label" size="243,45" source="session.CurrentService" transparent="1" zPosition="1" valign="top" borderWidth="3" borderColor="green">
+    <convert type="MPServicePosition">Position</convert>
+  </widget>
+  <ePixmap pixmap="Multibox_mod/icons/test/audio_flags.png" position="1246,791" size="107,51" zPosition="0" alphatest="blend" />
+  <ePixmap alphatest="blend" pixmap="Multibox_mod/menu/mediapointer_grau2_1.png" position="377,938" size="1185,30" zPosition="4" transparent="1" />
+  <widget alphatest="blend" path="/media/usb/audioicon_infobar" position="1246,791" render="AMB_yextAudioIcon" size="107,51" source="session.CurrentService" zPosition="1">
+    <convert type="AMB_extaudioinfo">AudioIcon</convert>
+  </widget>
+  <widget backgroundColor="dark" font="NotoSans-Bold; 32" halign="left" position="1389,870" render="Label" size="198,45" source="session.CurrentService" transparent="1" zPosition="1" valign="top" borderWidth="3" borderColor="orange">
+    <convert type="MPServicePosition">Remaining,Negate</convert>
+  </widget>
+  <widget backgroundColor="black" font="NotoSans-Bold; 32" foregroundColor="white" halign="left" position="510,1002" render="Label" size="180,45" source="session.CurrentService" transparent="0" zPosition="1" valign="top" borderWidth="3" borderColor="red">
+    <convert type="MPServicePosition">Length,ShowHours</convert>
+  </widget>
+  <widget backgroundColor="black" font="NotoSans-Bold; 34" foregroundColor="white" halign="left" position="24,790" render="speedyAXBlueRunningText" options="movetype=running,direction=left,startpoint=0,scrollamount=60,step=1,steptime=10,startdelay=2500,wrap=1,always=0,repeat=2,oneshot=1" size="1000,50" source="session.CurrentService" transparent="1" zPosition="1">
+    <convert type="MPServiceName">Name</convert>
+  </widget>
+  <!-- Flip Clock */-->
+  <widget source="global.CurrentTime" render="AMB_modflipclock_color" position="1588,889" zPosition="5" size="40,111" alphatest="blend" transparent="1">
+    <convert type="ClockToText">Format:H1 %H</convert>
+  </widget>
+  <widget source="global.CurrentTime" render="AMB_modflipclock_color" position="1631,889" zPosition="5" size="40,111" alphatest="blend" transparent="1">
+    <convert type="ClockToText">Format:H2 %H</convert>
+  </widget>
+  <widget source="global.CurrentTime" render="AMB_modflipclock_color" position="1687,889" zPosition="5" size="40,111" alphatest="blend" transparent="1">
+    <convert type="ClockToText">Format:M1 %M</convert>
+  </widget>
+  <widget source="global.CurrentTime" render="AMB_modflipclock_color" position="1731,889" zPosition="5" size="40,111" alphatest="blend" transparent="1">
+    <convert type="ClockToText">Format:M2 %M</convert>
+  </widget>
+  <widget source="global.CurrentTime" render="AMB_modflipclock_color" position="1785,889" zPosition="5" size="40,111" alphatest="blend" transparent="1">
+    <convert type="ClockToText">Format:S1 %S</convert>
+  </widget>
+  <widget source="global.CurrentTime" render="AMB_modflipclock_color" position="1829,889" zPosition="5" size="40,111" alphatest="blend" transparent="1">
+    <convert type="ClockToText">Format:S2 %S</convert>
+  </widget>
+  <widget source="global.CurrentTime" render="Pixmap" pixmap="Multibox_mod/menu/blink.png" position="1673,927" alphatest="blend" size="10,30" transparent="1" zPosition="6">
+    <convert type="AMB_AlwaysTrue" />
+    <convert type="ConditionalShowHide">Blink</convert>
+  </widget>
+  <ePixmap name="" position="1770,927" size="10,30" zPosition="6" pixmap="Multibox_mod/menu/blink.png" transparent="0" alphatest="blend" />
+  <widget source="session.CurrentService" render="Label" position="1314,997" size="167,40" font="NotoSans-Bold; 32" halign="left" backgroundColor="black" transparent="1" foregroundColor="red" zPosition="1" valign="center" borderWidth="3" borderColor="white">
+    <convert type="MPServicePosition">EndTime,ShowNoSeconds</convert>
+  </widget>
+  <ePixmap pixmap="Multibox_mod/icons/test/ico_sd_off_576.png" position="1135,791" size="104,51" zPosition="1" alphatest="blend" />
+  <widget alphatest="blend" pixmap="Multibox_mod/icons/test/ico_sd_on_576.png" position="1135,791" render="Pixmap" size="104,51" source="session.CurrentService" zPosition="2" transparent="1">
+    <convert type="ServiceInfo">VideoWidth</convert>
+    <convert type="ValueRange">0,1279</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget alphatest="blend" pixmap="Multibox_mod/icons/test/ico_hd_on_720.png" position="1135,791" render="Pixmap" size="104,51" source="session.CurrentService" zPosition="3" transparent="1">
+    <convert type="ServiceInfo">VideoHeight</convert>
+    <convert type="ValueRange">720,992</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget alphatest="blend" pixmap="Multibox_mod/icons/test/ico_hd_on_1080.png" position="1135,791" render="Pixmap" size="104,51" source="session.CurrentService" zPosition="4" transparent="1">
+    <convert type="ServiceInfo">VideoHeight</convert>
+    <convert type="ValueRange">1001,1080</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="session.CurrentService" position="1135,791" size="104,51" render="Pixmap" pixmap="Multibox_mod/icons/test/ico_uhd_on.png" zPosition="5" alphatest="blend" transparent="1">
+    <convert type="ServiceInfo">VideoHeight</convert>
+    <convert type="ValueRange">1081,5000</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <ePixmap pixmap="Multibox_mod/icons/test/ico_format_off.png" position="1472,791" size="104,51" zPosition="1" alphatest="blend" />
+  <widget source="session.CurrentService" render="Pixmap" pixmap="Multibox_mod/icons/test/ico_format_on.png" position="1472,791" size="104,51" zPosition="3" alphatest="blend" transparent="1">
+    <convert type="ServiceInfo">IsWidescreen</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="global.CurrentTime" render="Pixmap" pixmap="Multibox_mod/crypticons/ico_net1_off.png" position="1426,806" size="20,20" alphatest="blend" zPosition="4">
+    <convert type="AMB_AlwaysTrue" />
+    <convert type="ConditionalShowHide">Blink</convert>
+  </widget>
+  <widget source="session.CurrentService" render="Pixmap" pixmap="Multibox_mod/crypticons/ico_net1_on.png" position="1426,806" size="20,20" zPosition="5" alphatest="blend">
+    <convert type="AMB_TestConnection">
+    </convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <ePixmap alphatest="blend" pixmap="Multibox_mod/icons/test/ico_lan_off.png" position="1359,791" size="104,51" zPosition="1" transparent="1" />
+  <widget source="session.CurrentService" render="Pixmap" pixmap="Multibox_mod/icons/test/ico_net_on.png" position="1359,791" size="104,51" zPosition="3" alphatest="blend" transparent="1">
+    <convert type="AMB_TestConnection">
+    </convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="session.CurrentService" render="Pixmap" pixmap="Multibox_mod/icons/test/ico_wifi_on.png" position="1359,791" zPosition="3" size="104,51" transparent="1" alphatest="blend">
+    <convert type="AMB_RouteInfo">Wifi</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget source="session.CurrentService" render="Pixmap" pixmap="Multibox_mod/icons/test/ico_lan_on.png" position="1359,791" zPosition="4" size="104,51" transparent="1" alphatest="blend">
+    <convert type="AMB_RouteInfo">Lan</convert>
+    <convert type="ConditionalShowHide" />
+  </widget>
+  <widget backgroundColor="black" foregroundColor="orange" font="NotoSans-Bold; 24" halign="center" position="1580,1025" render="Label" size="321,50" source="session.CurrentService" valign="center" zPosition="11" transparent="1">
+    <convert type="AMB_BoxInfo">BoxType</convert>
+  </widget>
+  <widget source="global.CurrentTime" render="Label" position="1567,792" size="347,45" font="DS-DIGIT; 36" halign="center" backgroundColor="black" transparent="1" zPosition="6" borderWidth="2" borderColor="red" valign="bottom">
+    <convert type="ClockToText">Format:%A %d.%m.%Y</convert>
+  </widget>
+  <ePixmap alphatest="blend" pixmap="Multibox_mod/menu/spcoverfg.png" position="21,456" size="207,298" zPosition="2" transparent="1" />
+  <widget source="session.CurrentService" render="Cover" position="31,488" size="190,253" zPosition="3" alphatest="blend" />
+  <widget source="session.CurrentService" render="Label" position="790,870" size="260,45" font="NotoSans-Bold; 30" halign="center" valign="top" backgroundColor="black" foregroundColor="red" transparent="1" borderWidth="3" borderColor="white">
+    <convert type="ServiceInfoEX">vsize</convert>
+  </widget>
+  <eLabel text="Duration:" position="346,1002" size="182,45" font="NotoSans-Bold; 32" halign="left" backgroundColor="black" transparent="1" />
+  <eLabel text="Verbleibende Zeit:" position="1081,872" size="313,45" font="NotoSans-Bold; 32" halign="left" backgroundColor="black" transparent="1" />
+  <eLabel text="Verstrichene Zeit:" position="274,870" size="305,45" font="NotoSans-Bold; 32" halign="left" backgroundColor="black" transparent="1" />
+  <widget source="session.CurrentService" render="PositionGauge" position="435,957" size="1055,11" transparent="1" zPosition="3">
+    <convert type="ServicePosition">Gauge</convert>
+  </widget>
+  <widget source="session.CurrentService" render="Progress" position="435,942" size="1055,6" pixmap="Multibox_mod/progress/pointer.png" transparent="1" zPosition="2">
+    <convert type="ServicePosition">Position</convert>
+  </widget>
+  <widget source="session.CurrentService" render="PositionGauge" pointer="Multibox_mod/progress/pointer1.png" position="435,945" size="1055,16" zPosition="3" transparent="1">
+    <convert type="ServicePosition">Gauge</convert>
+  </widget>
+  <!-- MSN Weather/-->
+  <ePixmap alphatest="blend" pixmap="menu/wetterback5.png" position="1406,198" size="500,179" zPosition="-1" />
+  <eLabel text="Mondaufgang:" position="1431,210" size="237,35" font="NotoSans-Bold; 30" foregroundColor="white" backgroundColor="black" halign="left" transparent="1" />
+  <widget source="session.CurrentService" render="Label" position="1655,210" size="180,35" font="NotoSans-Bold; 30" backgroundColor="black" halign="left" transparent="1">
+    <convert type="AMB_MSNWeather3">Moonrise</convert>
+  </widget>
+  <eLabel text="Monduntergang:" position="1431,250" size="275,35" font="NotoSans-Bold; 30" foregroundColor="green" backgroundColor="black" halign="left" transparent="1" />
+  <widget source="session.CurrentService" render="Label" position="1687,250" size="180,35" font="NotoSans-Bold; 30" backgroundColor="black" halign="left" transparent="1" foregroundColor="green">
+    <convert type="AMB_MSNWeather3">Moonset</convert>
+  </widget>
+  <eLabel text="Mondlicht:" position="1430,290" size="180,35" font="NotoSans-Bold; 30" foregroundColor="red" backgroundColor="black" halign="left" transparent="1" />
+  <widget source="session.CurrentService" render="Label" position="1598,290" size="180,35" font="NotoSans-Bold; 30" backgroundColor="black" halign="left" transparent="1" foregroundColor="red">
+    <convert type="AMB_MSNWeather3">Moonlight</convert>
+  </widget>
+  <eLabel text="Entfernung:" position="1431,330" size="195,35" font="NotoSans-Bold; 30" foregroundColor="mediumblue" backgroundColor="black" halign="left" transparent="1" />
+  <widget source="session.CurrentService" render="Label" position="1610,330" size="180,35" font="NotoSans-Bold; 30" backgroundColor="black" halign="left" transparent="1" foregroundColor="mediumblue">
+    <convert type="AMB_MSNWeather3">Moondist</convert>
+  </widget>
+  <widget source="session.CurrentService" render="AMB_AnimatedMoonPixmap" path="/media/usb/AnimatedMoonPixmap" position="1787,241" size="90,90" zPosition="2" alphatest="on">
+    <convert type="AMB_MSNWeather3">PiconMoon</convert>
+  </widget>
+  <widget source="session.MSNWeather" noWrap="1" render="Label" position="175,47" size="182,30" font="NotoSans-Bold; 28" foregroundColor="orange" backgroundColor="black" halign="left" valign="center" zPosition="5" transparent="1" borderWidth="3" borderColor="white">
+    <convert type="MSNWeather">observationtime</convert>
+  </widget>
+  <widget noWrap="1" render="Label" position="75,3" source="session.MSNWeather" size="316,42" font="NotoSans-Bold; 30" foregroundColor="yellow" backgroundColor="black" halign="left" zPosition="6" transparent="1" valign="center" borderWidth="3" borderColor="white">
+    <convert type="AMB_MSNWeather3">Location</convert>
+  </widget>
+  <ePixmap alphatest="blend" pixmap="menu/wetterback3.png" position="0,0" size="1932,186" zPosition="-1" />
+  <eLabel text="Windrichtung:" position="5,146" size="155,32" font="NotoSans-Bold; 20" zPosition="5" halign="left" valign="center" backgroundColor="black" transparent="0" noWrap="1" />
+  <eLabel text="Gefühlte Temperatur:" position="5,109" size="230,32" font="NotoSans-Bold; 20" zPosition="5" halign="left" valign="center" backgroundColor="black" transparent="0" noWrap="1" />
+  <widget noWrap="1" backgroundColor="black" font="NotoSans-Bold; 28" render="Label" position="232,108" size="150,35" source="session.MSNWeather" zPosition="5" halign="left" transparent="1" foregroundColor="bluelabel" borderWidth="3" borderColor="white">
+    <convert type="AMB_MSNWeather3">Feelslike</convert>
+  </widget>
+  <widget noWrap="1" backgroundColor="black" font="NotoSans-Bold; 28" render="Label" position="161,137" size="300,45" source="session.MSNWeather" zPosition="5" halign="left" transparent="1" foregroundColor="yellow" borderWidth="3" borderColor="white" valign="bottom">
+    <convert type="AMB_MSNWeather3">Wind</convert>
+  </widget>
+  <widget noWrap="1" source="session.MSNWeather" render="Label" position="490,8" size="330,50" font="NotoSans-Bold; 30" foregroundColor="green" backgroundColor="black" halign="center" valign="center" transparent="1" zPosition="5" borderWidth="3" borderColor="white">
+    <convert type="AMB_MSNWeather3">Day1</convert>
+  </widget>
+  <ePixmap pixmap="icons/thermo1.png" position="522,62" size="28,40" zPosition="1" alphatest="blend" />
+  <widget noWrap="1" source="session.MSNWeather" render="Label" position="541,63" size="104,38" font="NotoSans-Bold; 28" foregroundColor="bluelabel" backgroundColor="black" halign="right" valign="center" transparent="1" zPosition="5" borderWidth="3" borderColor="white">
+    <convert type="AMB_MSNWeather3">Lowtemp1</convert>
+  </widget>
+  <eLabel text="-" position="645,68" size="30,30" font="NotoSans-Bold; 30" backgroundColor="black" halign="center" valign="center" transparent="1" zPosition="1" />
+  <ePixmap pixmap="icons/thermo.png" position="761,61" size="29,40" zPosition="1" alphatest="blend" />
+  <widget source="session.MSNWeather" render="Label" position="676,63" size="104,38" font="NotoSans-Bold; 28" foregroundColor="red" backgroundColor="black" halign="left" valign="center" transparent="1" zPosition="5" borderWidth="3" borderColor="white">
+    <convert type="AMB_MSNWeather3">Hightemp1</convert>
+  </widget>
+  <widget noWrap="1" source="session.MSNWeather" render="Label" position="490,104" size="330,75" font="NotoSans-Bold; 28" foregroundColor="green" backgroundColor="black" halign="center" valign="center" transparent="1" zPosition="5" borderWidth="3" borderColor="white">
+    <convert type="AMB_MSNWeather3">Skytext1</convert>
+  </widget>
+  <widget noWrap="1" source="session.MSNWeather" render="Label" position="1050,8" size="328,50" font="NotoSans-Bold; 30" foregroundColor="yellow" backgroundColor="black" halign="center" valign="center" transparent="1" zPosition="5" borderWidth="3" borderColor="white">
+    <convert type="AMB_MSNWeather3">Day2</convert>
+  </widget>
+  <ePixmap pixmap="icons/thermo1.png" position="1077,62" size="28,40" zPosition="1" alphatest="blend" />
+  <ePixmap pixmap="icons/thermo.png" position="1327,61" size="30,40" zPosition="1" alphatest="blend" />
+  <widget noWrap="1" source="session.MSNWeather" render="Label" position="1093,63" size="104,38" font="NotoSans-Bold; 28" foregroundColor="bluelabel" backgroundColor="black" halign="right" valign="center" transparent="1" zPosition="5" borderWidth="3" borderColor="white">
+    <convert type="AMB_MSNWeather3">Lowtemp2</convert>
+  </widget>
+  <widget source="session.MSNWeather" render="Label" position="1237,63" size="104,38" font="NotoSans-Bold; 28" foregroundColor="red" backgroundColor="black" halign="left" valign="center" transparent="1" zPosition="5" borderWidth="3" borderColor="white">
+    <convert type="AMB_MSNWeather3">Hightemp2</convert>
+  </widget>
+  <eLabel text="-" position="1197,61" size="40,40" font="NotoSans-Bold; 30" backgroundColor="black" halign="center" valign="center" transparent="1" zPosition="1" />
+  <widget noWrap="1" source="session.MSNWeather" render="Label" position="1050,104" size="325,75" font="NotoSans-Bold; 28" foregroundColor="yellow" backgroundColor="black" halign="center" valign="center" transparent="1" zPosition="5" borderWidth="3" borderColor="white">
+    <convert type="AMB_MSNWeather3">Skytext2</convert>
+  </widget>
+  <widget source="session.CurrentService" render="AMB_PiconUni3" path="Multibox_mod/weather" position="873,30" size="120,120" zPosition="8" alphatest="blend">
+  <convert type="AMB_MSNWeather3">Picon2</convert>
+</widget>
+  <widget source="session.CurrentService" render="AMB_PiconUni3" path="Multibox_mod/weather" position="364,30" size="120,120" zPosition="8" alphatest="blend">
+  <convert type="AMB_MSNWeather3">Picon1</convert>
+</widget>
+  <widget source="session.MSNWeather" noWrap="1" render="Label" position="178,78" size="182,30" font="NotoSans-Bold; 28" foregroundColor="green" backgroundColor="black" halign="left" valign="center" zPosition="5" transparent="1" borderWidth="3" borderColor="white">
+    <convert type="AMB_MSNWeather3">Date1</convert>
+  </widget>
+  <eLabel text="Aktualisiert am:" position="4,75" size="173,30" font="NotoSans-Bold; 20" zPosition="5" halign="left" valign="center" foregroundColor="white" backgroundColor="black" transparent="0" />
+  <eLabel text="Ort:" position="5,5" size="80,42" zPosition="5" halign="left" font="NotoSans-Bold; 30" backgroundColor="black" transparent="1" foregroundColor="white" />
+  <widget source="session.CurrentService" render="AMB_PiconUni3" path="Multibox_mod/weather" position="1425,30" size="120,120" zPosition="8" alphatest="blend">
+  <convert type="AMB_MSNWeather3">Picon3</convert>
+</widget>
+  <widget noWrap="1" source="session.MSNWeather" render="Label" position="1577,8" size="328,50" font="NotoSans-Bold; 30" foregroundColor="yellow" backgroundColor="black" halign="center" valign="center" transparent="1" zPosition="5" borderWidth="3" borderColor="white">
+    <convert type="AMB_MSNWeather3">Day3</convert>
+  </widget>
+  <ePixmap pixmap="icons/thermo.png" position="1852,61" size="30,40" zPosition="1" alphatest="blend" />
+  <widget source="session.MSNWeather" render="Label" position="1763,60" size="104,38" font="NotoSans-Bold; 28" foregroundColor="red" backgroundColor="black" halign="left" valign="center" transparent="1" zPosition="5" borderWidth="3" borderColor="white">
+    <convert type="AMB_MSNWeather3">Hightemp3</convert>
+  </widget>
+  <widget noWrap="1" source="session.MSNWeather" render="Label" position="1610,62" size="104,38" font="NotoSans-Bold; 28" foregroundColor="bluelabel" backgroundColor="black" halign="right" valign="center" transparent="1" zPosition="5" borderWidth="3" borderColor="white">
+    <convert type="AMB_MSNWeather3">Lowtemp3</convert>
+  </widget>
+  <eLabel text="-" position="1719,61" size="40,40" font="NotoSans-Bold; 30" backgroundColor="black" halign="center" valign="center" transparent="1" zPosition="1" />
+  <ePixmap pixmap="icons/thermo1.png" position="1595,62" size="28,40" zPosition="1" alphatest="blend" />
+  <widget noWrap="1" source="session.MSNWeather" render="Label" position="1577,104" size="325,75" font="NotoSans-Bold; 28" foregroundColor="yellow" backgroundColor="black" halign="center" valign="center" transparent="1" zPosition="5" borderWidth="3" borderColor="white">
+    <convert type="AMB_MSNWeather3">Skytext3</convert>
+  </widget>
+  <eLabel text="Aktualisiert um:" position="5,49" size="165,25" zPosition="5" halign="left" font="NotoSans-Bold; 19" backgroundColor="black" transparent="0" foregroundColor="white" />
+  <!-- MSN Weather/-->
+<!-- Bitrate_Viewer/-->
+<!--<ePixmap position="1667,622" size="230,79" zPosition="-1" pixmap="Multibox_mod/menu/bitrate2.png" transparent="1" alphatest="blend" />
+  <eLabel text="Video:" font="NotoSans-Bold; 26" position="1673,625" size="100,35" transparent="1" zPosition="5" foregroundColor="mediumblue" backgroundColor="black" halign="center" noWrap="1" valign="center" />
+  <widget source="session.CurrentService" render="Label" position="1765,626" size="130,35" font="NotoSans-Bold; 26" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="red" noWrap="1" valign="center">
+    <convert type="AMB_Bitrate">%V Kb/s</convert>
+  </widget>
+  <eLabel text="Audio:" font="NotoSans-Bold; 26" position="1673,661" size="100,35" transparent="1" zPosition="5" foregroundColor="red" backgroundColor="black" halign="center" noWrap="1" valign="center" />
+  <widget source="session.CurrentService" render="Label" position="1766,660" size="130,35" font="NotoSans-Bold; 26" zPosition="6" backgroundColor="black" transparent="1" foregroundColor="mediumblue" noWrap="1" valign="center">
+    <convert type="AMB_Bitrate">%A Kb/s</convert>
+  </widget>-->
+<!-- Bitrate_Viewer/-->
+</screen>
+ </skin>
+ 
+

@@ -1,0 +1,149 @@
+<skin>
+  <!-- ChannelSelection_speedy -->
+<screen name="ChannelSelection" position="0,0" title="Channel Selection" backgroundColor="transparent2" flags="wfNoBorder" size="1920,1080">
+<ePixmap pixmap="Multibox_mod/menu/line648.png" position="1230,432" size="674,4" alphatest="blend" zPosition="6" />
+<widget source="session.FrontendInfo" render="Label" position="1610,1023" size="304,44" font="NotoSans-Bold; 32" halign="center" backgroundColor="black" transparent="1" zPosition="1">
+<convert type="AMB_FrontendInfo">STRING</convert>
+</widget>
+<ePixmap pixmap="Multibox_mod/menu/line648.png" position="1230,343" size="674,4" alphatest="blend" zPosition="6" />
+<ePixmap pixmap="Multibox_mod/menu/line648.png" position="1230,358" size="674,4" alphatest="blend" zPosition="6" />
+<eLabel name="" text=")" position="1800,357" size="15,30" font="NotoSans-Bold; 27" foregroundColor="red" backgroundColor="black" zPosition="9" halign="center" transparent="1" />
+<widget source="ServiceEvent" render="Label" position="1728,357" size="85,30" font="NotoSans-Bold; 27" backgroundColor="black" transparent="1" zPosition="1" foregroundColor="red">
+<convert type="EventTime">EndTime</convert>
+<convert type="ClockToText">
+</convert>
+</widget>
+<eLabel name="" text="(" position="1715,357" size="15,30" font="NotoSans-Bold; 27" foregroundColor="red" backgroundColor="black" zPosition="9" halign="center" transparent="1" />
+<eLabel name="" text="(" position="1383,357" size="15,30" font="NotoSans-Bold; 27" foregroundColor="green" backgroundColor="black" zPosition="9" halign="center" transparent="1" />
+<eLabel text="Start Time:" position="1231,358" size="163,30" font="NotoSans-Bold; 27" halign="left" backgroundColor="black" foregroundColor="green" transparent="1" zPosition="1" />
+<eLabel text="End Time:" position="1578,358" size="150,30" font="NotoSans-Bold; 27" backgroundColor="black" transparent="1" zPosition="1" foregroundColor="red" />
+<eLabel name="" text=")" position="1470,357" size="15,30" font="NotoSans-Bold; 27" foregroundColor="green" backgroundColor="black" zPosition="9" halign="center" transparent="1" />
+<widget source="ServiceEvent" render="Label" position="1398,358" size="85,30" font="NotoSans-Bold; 27" halign="left" backgroundColor="black" transparent="1" zPosition="1" foregroundColor="green">
+<convert type="EventTime">StartTime</convert>
+<convert type="ClockToText">
+</convert>
+</widget>
+<ePixmap pixmap="Multibox_mod/buttons/icons/key_epg.png" position="1808,987" size="103,35" alphatest="blend" zPosition="1" />
+<ePixmap pixmap="Multibox_mod/menu/line648.png" position="1230,940" size="674,4" alphatest="blend" zPosition="6" />
+<ePixmap pixmap="Multibox_mod/menu/line648.png" position="1230,762" size="674,4" alphatest="blend" zPosition="6" />
+<ePixmap pixmap="Multibox_mod/menu/line648.png" position="1230,578" size="674,4" alphatest="blend" zPosition="6" />
+<widget source="Title" render="AMB_SPclearFavName" position="152,2" size="1004,71" font="HandelGotDBol; 45" halign="center" valign="center" backgroundColor="black" transparent="1" zPosition="2" foregroundColor="mediumblue" borderWidth="3" borderColor="white" />
+<ePixmap pixmap="menu/BG_channelse2l.png" position="0,0" zPosition="-20" size="1920,1080" />
+<ePixmap pixmap="Multibox_mod/menu/line648.png" position="1229,798" size="674,4" alphatest="blend" zPosition="6" />
+<ePixmap pixmap="Multibox_mod/icons/arrowup_red.png" position="31,9" size="40,70" alphatest="blend" />
+<ePixmap pixmap="Multibox_mod/buttons/icons/key_menu.png" position="1699,987" size="103,35" alphatest="blend" zPosition="1" />
+<ePixmap pixmap="Multibox_mod/buttons/icons/key_info.png" position="1590,987" size="103,35" alphatest="blend" zPosition="1" />
+<ePixmap pixmap="Multibox_mod/buttons/key_red.png" position="23,1002" size="35,35" alphatest="blend" />
+<ePixmap pixmap="Multibox_mod/buttons/key_green.png" position="228,1002" size="35,35" alphatest="blend" />
+<ePixmap pixmap="Multibox_mod/buttons/key_yellow.png" position="524,1002" size="35,35" alphatest="blend" />
+<ePixmap pixmap="Multibox_mod/buttons/key_blue.png" position="775,1002" size="35,35" alphatest="blend" />
+<widget name="key_red" position="67,985" size="150,70" zPosition="1" valign="center" font="NotoSans-Bold; 27" halign="left" backgroundColor="black" transparent="1" />
+<widget name="key_green" position="275,985" size="240,70" zPosition="1" valign="center" font="NotoSans-Bold; 27" halign="left" backgroundColor="black" transparent="1" />
+<widget name="key_yellow" position="559,985" size="210,70" zPosition="1" valign="center" font="NotoSans-Bold; 27" halign="left" backgroundColor="black" transparent="1" />
+<widget name="key_blue" position="816,985" size="240,70" zPosition="1" valign="center" font="NotoSans-Bold; 27" halign="left" backgroundColor="black" transparent="1" />
+<widget source="global.CurrentTime" render="Label" position="1038,1001" size="568,50" font="NotoSans-Bold; 32" halign="left" backgroundColor="black" transparent="1" borderWidth="3" borderColor="red">
+<convert type="ClockToText">Format:%A,%d.%m.%Y  %H:%M:%S</convert>
+</widget>
+<widget position="1320,64" size="488,273" source="session.VideoPicture" render="Pig" zPosition="3" backgroundColor="background-pig" />
+<!--<widget source="session.CurrentService" render="Pixmap" pixmap="Multibox_mod/icons/sat.png" position="1019,1098" size="150,95" zPosition="6" transparent="1" alphatest="blend">
+<convert type="ServiceInfoEX">IsSatelliteS</convert>
+<convert type="ConditionalShowHide" />
+</widget>
+<widget source="session.CurrentService" render="Pixmap" pixmap="Multibox_mod/icons/dvbt.png" position="1539,1099" size="150,95" zPosition="4" transparent="1" alphatest="blend">
+<convert type="ServiceInfoEX">IsTerrestrial</convert>
+<convert type="ConditionalShowHide" />
+</widget>
+<widget source="session.CurrentService" render="Pixmap" pixmap="Multibox_mod/icons/dvb-c1.png" position="1245,1097" size="150,95" zPosition="4" transparent="1" alphatest="blend">
+<convert type="ServiceInfoEX">IsCable</convert>
+<convert type="ConditionalShowHide" />
+</widget>-->
+<widget name="list" position="7,92" size="1188,871" scrollbarMode="showOnDemand" transparent="1" zPosition="1" serviceItemHeight="45" serviceNumberFont="NotoSans-Bold;33" colorServiceStreamed="rose" colorServicePseudoRecorded="darkorange" serviceNameFont="NotoSans-Bold;33" serviceInfoFont="NotoSans-Bold;33" foregroundColor="white" foregroundColorSelected="mediumblue" backgroundColor="black" backgroundColorSelected="mediumblue" foregroundColorMarkedSelected="white" colorServiceDescription="mediumblue" colorServiceDescriptionSelected="white" selectionPixmap="menu/selected_45.png" picServiceEventProgressbar="progress/progress80_12.png" colorServiceRecording="red" foregroundColorServiceNotAvail="yellow" colorEventProgressbarBorder="white" colorEventProgressbarBorderSelected="red" fieldMargins="15" nonplayableMargins="15" itemsDistances="8" progressBarWidth="90" progressPercentWidth="90" progressbarHeight="12" itemHeight="45" />
+<ePixmap pixmap="progress/Progress_livetv.png" position="1231,348" size="674,8" zPosition="2" alphatest="blend" />
+<widget source="session.Event_Now" render="AMB_Progress" pixmap="progress/Progress_live_tv.png" position="1231,348" size="674,8" zPosition="1" transparent="1" borderWidth="1" borderColor="white">
+<convert type="EventTime">Progress</convert>
+</widget>
+<widget source="ServiceEvent" render="AMB_RunningText" options="movetype=running,direction=left,startpoint=0,scrollamount=60,step=1,steptime=10,startdelay=13000,wrap=1,always=0,repeat=2,oneshot=1" position="1261,935" size="645,40" font="NotoSans-Bold; 30" foregroundColor="darkred" zPosition="5" noWrap="1" transparent="1" backgroundColor="black">
+<convert type="AMB_EventName2">PrimeTimeWithDuration</convert>
+</widget>
+<widget source="ServiceEvent" render="Label" position="1253,1" size="613,55" font="NotoSans-Bold; 40" halign="center" valign="center" backgroundColor="black" transparent="1" zPosition="2" borderWidth="3" borderColor="mediumblue">
+<convert type="AMB_ServiceName">Name</convert>
+</widget>
+<ePixmap pixmap="Multibox_mod/menu/line648.png" position="1230,396" size="674,4" alphatest="blend" zPosition="6" />
+<ePixmap pixmap="Multibox_mod/menu/line648.png" position="1230,618" size="674,2" alphatest="blend" zPosition="6" />
+<ePixmap pixmap="Multibox_mod/icons/arrowdown_red.png" position="70,9" size="40,70" alphatest="blend" />
+<!--<widget source="session.CurrentService" render="Pixmap" pixmap="Multibox_mod/icons/sat-s2.png" position="371,1095" size="150,95" zPosition="3" transparent="1" alphatest="blend">
+<convert type="ServiceInfoEX">IsSatelliteS2</convert>
+<convert type="ConditionalShowHide" />
+</widget>
+<widget source="session.CurrentService" render="Pixmap" pixmap="Multibox_mod/icons/picon_IPTV.png" position="787,1097" size="150,95" zPosition="5" transparent="1" alphatest="blend">
+<convert type="ServiceInfoEX">IsStreamTV</convert>
+<convert type="ConditionalShowHide" />
+</widget>-->
+<ePixmap pixmap="Multibox_mod/menu/pig_bg7.png" position="1315,60" size="498,281" zPosition="1" alphatest="blend" />
+<ePixmap position="1185,123" zPosition="4" size="10,820" pixmap="Multibox_mod/menu/scrollbarbackground.png" alphatest="blend" transparent="1" />
+<widget source="ServiceEvent" render="AMB_RunningText" options="movetype=running,direction=left,startpoint=0,scrollamount=60,step=1,steptime=10,startdelay=2500,wrap=1,always=0,repeat=0,oneshot=1" position="1231,394" zPosition="1" size="680,40" font="NotoSans-Bold; 30" valign="top" backgroundColor="black" transparent="1" foregroundColor="green">
+<convert type="AMB_EventName2">Name</convert>
+</widget>
+<widget source="ServiceEvent" render="AMB_RunningText" options="movetype=running,direction=top,startpoint=0,startdelay=3000,wrap=1,always=0,repeat=2,oneshot=1" position="1230,434" zPosition="1" size="680,140" font="NotoSans-Bold; 30" backgroundColor="black" transparent="1" valign="top" foregroundColor="white">
+<convert type="AMB_EventName2">ExtendedDescription</convert>
+</widget>
+<widget source="ServiceEvent" render="AMB_RunningText" options="movetype=running,direction=left,startpoint=0,scrollamount=60,step=1,steptime=10,startdelay=5000,wrap=1,always=0,repeat=2,oneshot=1" position="1231,577" zPosition="2" size="680,40" font="NotoSans-Bold; 30" backgroundColor="black" valign="top" transparent="1" foregroundColor="mediumblue">
+<convert type="AMB_EventName2">NextName</convert>
+</widget>
+<widget source="ServiceEvent" render="AMB_RunningText" options="movetype=running,direction=top,startpoint=0,startdelay=7000,wrap=1,always=0,repeat=2,oneshot=1" position="1231,621" zPosition="2" size="680,140" font="NotoSans-Bold; 30" backgroundColor="black" valign="top" transparent="1" foregroundColor="white">
+<convert type="AMB_EventName2">NextDescription</convert>
+</widget>
+<widget source="ServiceEvent" render="AMB_RunningText" options="movetype=running,direction=left,startpoint=0,scrollamount=60,step=1,steptime=10,startdelay=9000,wrap=1,always=0,repeat=2,oneshot=1" position="1231,758" zPosition="2" size="680,40" font="NotoSans-Bold; 30" backgroundColor="black" valign="top" transparent="1" foregroundColor="yellow">
+<convert type="AMB_EventName2">NextNameNext</convert>
+</widget>
+<widget source="ServiceEvent" render="AMB_RunningText" options="movetype=running,direction=top,startpoint=0,startdelay=11000,wrap=1,always=0,repeat=2,oneshot=1" position="1230,800" zPosition="2" size="680,140" font="NotoSans-Bold; 30" backgroundColor="black" valign="top" transparent="1" foregroundColor="white">
+<convert type="AMB_EventName3">ThirdDescription</convert>
+</widget>
+<!-- NextEvents_test -->
+<!--<widget source="ServiceEvent" render="Label" position="13,1150" size="820,32" font="Regular; 28" zPosition="5" noWrap="1" transparent="1" backgroundColor="black" foregroundColor="white">
+<convert type="AMB_NextEvents">Event2,withDuration</convert>
+</widget>
+<widget source="ServiceEvent" render="Label" position="-1,1111" size="820,32" font="Regular; 28" zPosition="5" noWrap="1" transparent="1" backgroundColor="black" foregroundColor="white">
+<convert type="AMB_NextEvents">Event1,showDuration</convert>
+</widget>
+<widget source="ServiceEvent" render="Label" position="500,1149" size="820,32" font="Regular; 28" zPosition="5" noWrap="1" transparent="1" backgroundColor="black" foregroundColor="white">
+<convert type="AMB_NextEvents">Event3,withDuration</convert>
+ </widget>-->
+<!-- NextEvents_test -->
+
+
+
+
+<!--<widget source="ServiceEvent" render="speedy_xtraNxtEvnt" nxtEvents="4" snglEvent="2" font="Regular; 18" position="861,764" size="400,110" zPosition="5" backgroundColor="black" foregroundColor="white" transparent="1" />-->
+<widget source="session.CurrentService" render="Pixmap" pixmap="test/ico_dvb_t2.png" position="1159,15" size="90,45" zPosition="3" alphatest="blend" transparent="1">
+<convert type="AMB_ServiceInfoEX">IsTerrestrialT2</convert>
+<convert type="ConditionalShowHide" />
+</widget>
+<widget source="session.CurrentService" render="Pixmap" pixmap="test/ico_dvb_s2.png" position="1159,15" size="90,45" zPosition="5" alphatest="blend" transparent="1">
+<convert type="AMB_ServiceInfoEX">IsSatelliteS2</convert>
+<convert type="ConditionalShowHide" />
+</widget>
+<widget source="session.CurrentService" render="Pixmap" pixmap="test/ico_dvb_c.png" position="1159,15" size="90,45" zPosition="2" alphatest="blend" transparent="1">
+<convert type="AMB_ServiceInfoEX">IsCable</convert>
+<convert type="ConditionalShowHide" />
+</widget>
+<widget source="session.CurrentService" render="Pixmap" pixmap="test/ico_dvb_s.png" position="1159,15" size="90,45" zPosition="4" alphatest="blend" transparent="1">
+<convert type="AMB_ServiceInfoEX">IsSatelliteS</convert>
+<convert type="ConditionalShowHide" />
+</widget>
+<widget source="session.CurrentService" render="Pixmap" pixmap="test/ico_dvb_iptv.png" position="1159,15" size="90,45" zPosition="6" alphatest="blend" transparent="1">
+<convert type="AMB_ServiceInfoEX">IsStreamTV</convert>
+<convert type="ConditionalShowHide" />
+</widget>
+<ePixmap pixmap="test/ico_1.png" position="1159,15" size="90,45" zPosition="1" alphatest="blend" />
+<ePixmap pixmap="Multibox_mod/icons/epgclock_primetime.png" position="1227,943" size="30,30" zPosition="6" alphatest="on" transparent="1" />
+<widget source="session.Event_Now" render="Label" position="1812,358" size="112,30" transparent="1" zPosition="1" backgroundColor="black" font="NotoSans-Bold; 25" halign="left">
+  <convert type="EventTime">Remaining</convert>
+  <convert type="RemainingToText">InMinutes</convert>
+</widget>
+<widget source="ServiceEvent" render="Progress" pixmap="Multibox_mod/progress/progress80_10.png" position="1491,372" size="80,10" transparent="1" zPosition="3" borderWidth="2" borderColor="white">
+  <convert type="EventTime">Progress</convert>
+</widget>
+<ePixmap pixmap="Multibox_mod/menu/line1920.png" position="0,978" size="1915,4" alphatest="blend" zPosition="6" />
+</screen>
+ </skin>
