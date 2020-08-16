@@ -3,11 +3,15 @@
 # digiteng@gmail.com
 # https://github.com/digiteng/
 # 06.2020 - 08.2020
+from __future__ import absolute_import
 from Plugins.Plugin import PluginDescriptor
 from Components.config import config
 import threading
-import xtra
-import download
+from . import xtra
+from . import download
+
+
+from six.moves import reload_module
 
 
 def ddwn():
@@ -21,8 +25,8 @@ if config.plugins.xtraEvent.timerMod.value == True:
 
 
 def main(session, **kwargs):
-	reload(xtra)
-	reload(download)
+	reload_module(xtra)
+	reload_module(download)
 
 	try:
 		session.open(xtra.xtra)

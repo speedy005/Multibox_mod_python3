@@ -23,8 +23,10 @@ from Components.ConfigList import ConfigListScreen
 from Components.config import config, getConfigListEntry, ConfigText, ConfigPassword, ConfigClock, ConfigSelection, ConfigSubsection, ConfigYesNo, configfile, NoSave
 from Components.Element import cached
 from Tools.Directories import fileExists
-from cStringIO import StringIO
 import os
+
+from six.moves import cStringIO as StringIO
+
 
 class AMB_EmuName2(Poll, Converter, object):
 	def __init__(self, type):

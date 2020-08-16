@@ -2,7 +2,7 @@
 # by digiteng...
 # v1 07.2020
 # <widget render="xtraParental" source="session.Event_Now" position="0,0" size="60,60" alphatest="blend" zPosition="2" transparent="1" />
-from Renderer import Renderer
+from Components.Renderer.Renderer import Renderer
 from enigma import ePixmap, loadPNG
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 from Components.config import config

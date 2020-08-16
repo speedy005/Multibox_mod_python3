@@ -18,7 +18,7 @@
 #  This converter is NOT free software. It is open source, you are allowed to
 #  modify it (if you keep the license), but it may not be commercially 
 #  distributed other than under the conditions noted above.
-#	
+#
 
 from Components.Converter.Converter import Converter
 from Components.Element import cached
@@ -44,15 +44,15 @@ class AMB_BoxInfo(Poll, Converter, object):
 		if type == "BoxType":
 			self.type = self.BOXTYPE
 			self.poll_enabled = False
- 		elif type == "LoadAverage":
+		elif type == "LoadAverage":
 			self.type = self.LOAD
- 		elif type == "MemInfo":
+		elif type == "MemInfo":
 			self.type = self.MEMINFO
- 		elif type == "FreeFlash":
+		elif type == "FreeFlash":
 			self.type = self.FREEFLASH
- 		elif type == "TempSensor":
+		elif type == "TempSensor":
 			self.type = self.TEMPSENSOR
- 		elif type == "Uptime":
+		elif type == "Uptime":
 			self.type = self.UPTIME
 		else:
 			self.type = self.BOXTYPE
@@ -92,7 +92,7 @@ class AMB_BoxInfo(Poll, Converter, object):
 		except:
 			return "FlashFree: N/A"
 			flash_info = None
-		if flash_info is not None:			
+		if flash_info is not None:
 			free_flash = int((flash_info.f_frsize) * (flash_info.f_bavail) / 1024 / 1024)
 			return "FlashFree: %s MB" % free_flash
 
@@ -103,7 +103,7 @@ class AMB_BoxInfo(Poll, Converter, object):
 		except:
 			return "Uptime: N/A"
 			uptime_info = None
-		if uptime_info is not None:			
+		if uptime_info is not None:
 			total_seconds = float(uptime_info[0])
 			MINUTE  = 60
 			HOUR    = MINUTE * 60
@@ -123,13 +123,13 @@ class AMB_BoxInfo(Poll, Converter, object):
 			return "Uptime: %s" % uptime
 
 	def getTempSensor(self):
-	 	if not "dm7020hd" in HardwareInfo().get_device_name():	
+		if not "dm7020hd" in HardwareInfo().get_device_name():	
 			try:
 				sensor_info = sensors.getSensorsList(sensors.TYPE_TEMPERATURE)
 			except:
 				return "Temp: N/A"
 				sensor_info = None
-			if sensor_info is not None:			
+			if sensor_info is not None:
 				if len(sensor_info) > 0:
 					return "Temp: %s°C" % sensors.getSensorValue(sensor_info[0])
 		return "Temp: No Sensor"

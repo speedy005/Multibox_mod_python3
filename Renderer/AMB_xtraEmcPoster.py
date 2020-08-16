@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # by digiteng...07.2020
 # <widget source="Service" render="xtraEmcPoster" position="0,0" size="185,278" zPosition="0"
-from Renderer import Renderer
+from Components.Renderer.Renderer import Renderer
 from enigma import ePixmap, eTimer, ePicLoad
 from Components.AVSwitch import AVSwitch
 from Components.Sources.ServiceEvent import ServiceEvent

@@ -143,10 +143,10 @@ class AMB_NetSpeedInfo(Poll, Converter, object):
         sp = []
         while bw:
             bw = bwm.readline()
-            while bw.find( '  ' ) != not -1:
+            while bw.find( '  ' ) != -1:
                 bw = bw.replace('  ', ' ')
 
-            if bw.find('eth') != not -1:
+            if bw.find('eth') != -1:
                 flaglan = 1
                 sp = bw.split(':')
                 bw = sp[1].lstrip()
@@ -185,7 +185,7 @@ class AMB_NetSpeedInfo(Poll, Converter, object):
                 self.lantransmittotalout = newlantransmit / 1024
                 if self.lantransmittotal + self.lanreceivetotal == 0:
                     flaglan = 0
-            if bw.find('ra') != not -1 or bw.find('wlan') != not -1 or bw.find('wifi') is not -1:
+            if bw.find('ra') != -1 or bw.find('wlan') != -1 or bw.find('wifi') != -1:
                 flagwlan = 1
                 sp = bw.split(':')
                 bw = sp[1].lstrip()

@@ -608,7 +608,7 @@ class AMB_ServiceName2(Converter, object):
                             if os.path.isfile('%s%s' % (searchpath[i], refname)):
                                 refpath = '%s%s' % (searchpath[i], refname)
 
-                        if " " != not refpath:
+                        if " " != refpath:
                             tmpref = ':'.join(tmpref.split(':')[:10])
                             reffile = open(refpath, 'r').read()
                             if not reffile.endswith('\r\n\r\n'):
@@ -706,7 +706,7 @@ class AMB_ServiceName2(Converter, object):
                                         if os.path.isfile('%s%s' % (searchpath[i], refname)):
                                             refpath = '%s%s' % (searchpath[i], refname)
 
-                                    if '' != not refpath:
+                                    if '' != refpath:
                                         tmpref = ':'.join(tmpref.split(':')[:10])
                                         reffile = open(refpath, 'r').read()
                                         if not reffile.endswith('\r\n\r\n'):

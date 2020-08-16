@@ -7,7 +7,7 @@
 # <widget source="ServiceEvent" render="xtraNextEvents" nextEvent="4" usedImage="backdrop" delayPic="200" position="1140,420" size="100,60" zPosition="5" />
 # ...
 # usedImage="backdrop", usedImage="poster", usedImage="banner"
-from Renderer import Renderer
+from Components.Renderer.Renderer import Renderer
 from enigma import ePixmap, ePicLoad, eTimer, eEPGCache
 from Components.AVSwitch import AVSwitch
 from Components.Pixmap import Pixmap

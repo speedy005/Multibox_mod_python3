@@ -1,6 +1,7 @@
 ﻿#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
 from Components.Pixmap import Pixmap
 from Components.Renderer.Renderer import Renderer
 from enigma import iServiceInformation
@@ -150,7 +151,7 @@ class AMB_PicEmu2(Renderer, Poll):
                                 value = self.getText()
                                 value = value.lower()  # change value to small letters
                                 if value is None:
-                                    print '[PicEmu2] no emu installed'
+                                    print('[PicEmu2] no emu installed')
                                     sname = ''
                                 else:
 
@@ -183,7 +184,7 @@ class AMB_PicEmu2(Renderer, Poll):
                                             if 'address' in line:
                                                 sname = 'CCcam'
                             except:
-                                print ''
+                                print('')
 
                         if caids:
                             if len(caids) > 0:

@@ -1,3 +1,4 @@
+from __future__ import print_function
 # PiconUni
 # Copyright (c) 2boom 2012-16
 # 

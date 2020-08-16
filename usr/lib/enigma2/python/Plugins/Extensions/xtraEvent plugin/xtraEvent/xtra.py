@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # by digiteng...06.2020, 07.2020, 08.2020
+from __future__ import absolute_import
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Components.Label import Label
@@ -194,7 +195,7 @@ class xtra(Screen, ConfigListScreen):
 			"menu": self.brokenImageRemove,
 
 			# "info": self.about,
-		},-1)
+		}, -1)
 		
 		self.setTitle(_("xtraEvent v1"))
 		self['status'] = Label()
@@ -383,7 +384,7 @@ class xtra(Screen, ConfigListScreen):
 					title = events[i][4]
 					evntNm = re.sub("([\(\[]).*?([\)\]])|(: odc.\d+)|(\d+: odc.\d+)|(\d+ odc.\d+)|(:)|( -(.*?).*)|(,)|!", "", title).rstrip().lower()
 					
-					open(pathLoc+"events","a+").write("%s\n" % str(evntNm))
+					open(pathLoc+"events", "a+").write("%s\n" % str(evntNm))
 				
 				if os.path.exists(pathLoc+"events"):
 					with open(pathLoc+"events", "r") as f:
@@ -443,7 +444,7 @@ class xtra(Screen, ConfigListScreen):
 		self.session.open(manuelSearch)
 
 	def dwnldFileld(self):
-		from download import download
+		from .download import download
 		download()
 
 	def exit(self):
@@ -667,7 +668,7 @@ class manuelSearch(Screen, ConfigListScreen):
 		except:
 			return
 		self['status'].setText(_("Download : "))
-		from download import intCheck
+		from .download import intCheck
 		if intCheck():
 			if config.plugins.xtraEvent.PB.value == "posters":
 				if config.plugins.xtraEvent.imgs.value == "TMDB":
@@ -706,21 +707,21 @@ class manuelSearch(Screen, ConfigListScreen):
 			if desktop_size <= 1280:
 				if self.pb == "posters":
 					self["Picture"].instance.setScale(1)
-					self["Picture"].instance.resize(eSize(185,278))
-					self["Picture"].instance.move(ePoint(930,325))
+					self["Picture"].instance.resize(eSize(185, 278))
+					self["Picture"].instance.move(ePoint(930, 325))
 				else:
 					self["Picture"].instance.setScale(1)
-					self["Picture"].instance.resize(eSize(300,170))
-					self["Picture"].instance.move(ePoint(890,375))
+					self["Picture"].instance.resize(eSize(300, 170))
+					self["Picture"].instance.move(ePoint(890, 375))
 			else:
 				if self.pb == "posters":
 					self["Picture"].instance.setScale(1)
-					self["Picture"].instance.resize(eSize(185,278))
-					self["Picture"].instance.move(ePoint(1450,550))
+					self["Picture"].instance.resize(eSize(185, 278))
+					self["Picture"].instance.move(ePoint(1450, 550))
 				else:
 					self["Picture"].instance.setScale(1)
-					self["Picture"].instance.resize(eSize(300,170))
-					self["Picture"].instance.move(ePoint(1400,600))				
+					self["Picture"].instance.resize(eSize(300, 170))
+					self["Picture"].instance.move(ePoint(1400, 600))				
 
 			self['Picture'].show()
 			self.inf()
@@ -748,7 +749,7 @@ class manuelSearch(Screen, ConfigListScreen):
 			im = Image.open(pb_path)
 			pb_res = im.size
 
-			self['info'].setText(_("{}/{}    {}    {} ".format(cur,tot,pb_sz,pb_res)))
+			self['info'].setText(_("{}/{}    {}    {} ".format(cur, tot, pb_sz, pb_res)))
 		except:
 			return
 
@@ -779,7 +780,7 @@ class manuelSearch(Screen, ConfigListScreen):
 					if config.plugins.xtraEvent.PB.value == "backdrops":
 						if not config.plugins.xtraEvent.searchModManuel.value == "TV List":
 							im1 = Image.open(target) 
-							im1 = im1.resize((1280,720))
+							im1 = im1.resize((1280, 720))
 							im1 = im1.save(target)
 							if os.path.exists(target):
 								im1 = Image.open(target)
@@ -918,7 +919,7 @@ class manuelSearch(Screen, ConfigListScreen):
 			url_find = 'https://m.imdb.com/find?q={}'.format(quote(self.title))
 			ff = requests.get(url_find).text
 			p = 'src=\"https://(.*?)._V1_UX75_CR0,0,75,109_AL_.jpg'
-			pstr = re.findall(p,ff)[0]
+			pstr = re.findall(p, ff)[0]
 			if config.plugins.xtraEvent.PB.value == "posters":
 				url = "https://{}._V1_UX{}_AL_.jpg".format(pstr, config.plugins.xtraEvent.imdb_Poster_size.value)
 				if url:
@@ -1064,7 +1065,7 @@ class selBouquets(Screen):
 			os.remove(pathLoc+"events")
 		try:
 			self.sources = []
-			for idx,item in enumerate(self["list"].list):
+			for idx, item in enumerate(self["list"].list):
 					item = self["list"].list[idx][0]
 					if item[3]:
 						self.sources.append(item[0])
@@ -1081,7 +1082,7 @@ class selBouquets(Screen):
 							title = events[i][4]
 							evntNm = re.sub("([\(\[]).*?([\)\]])|(: odc.\d+)|(\d+: odc.\d+)|(\d+ odc.\d+)|(:)|( -(.*?).*)|(,)|!", "", title).rstrip().lower()
 							
-							open(pathLoc+"events","a+").write("%s\n"% str(evntNm))
+							open(pathLoc+"events", "a+").write("%s\n"% str(evntNm))
 					except:
 						pass
 			self.close()

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # by digiteng...06.2020, 07.2020,08.2020
 
+from __future__ import absolute_import
 from Components.AVSwitch import AVSwitch
 from enigma import eEPGCache
 from Components.config import config
@@ -12,7 +13,7 @@ from requests.utils import quote
 import os, re, random
 from PIL import Image
 import socket
-import xtra
+from . import xtra
 from datetime import datetime
 
 
@@ -87,7 +88,7 @@ def selBouquets():
 				for i in range(int(n)):
 					title = events[i][4]
 					evntNm = re.sub("([\(\[]).*?([\)\]])|(: odc.\d+)|(\d+: odc.\d+)|(\d+ odc.\d+)|(:)|( -(.*?).*)|(,)|!", "", title).rstrip().lower()
-					open(pathLoc+"events","a+").write("%s\n"% str(evntNm))
+					open(pathLoc+"events", "a+").write("%s\n"% str(evntNm))
 			except:
 				pass		
 		intCheck()
@@ -269,7 +270,7 @@ def fanart_Poster():
 											mm_type = m_type
 										url = (fjs['tvposter'][0]['url'])
 										if url:
-											# print url
+											# print(url)
 											w = open(dwnldFile, 'wb').write(requests.get(url, stream=True, allow_redirects=True).content)
 											downloaded += 1
 
@@ -666,7 +667,7 @@ def infos():
 						url_omdb = 'https://www.omdbapi.com/?apikey={}&i={}'.format(str(omdb_api), str(imdb_id))
 						info_json = requests.get(url_omdb).json()
 
-						w = open(info_files,"wb").write(json.dumps(info_json))
+						w = open(info_files, "wb").write(json.dumps(info_json))
 						downloaded += 1
 						w.close()
 

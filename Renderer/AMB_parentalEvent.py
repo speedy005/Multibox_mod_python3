@@ -2,7 +2,7 @@
 # by digiteng...
 # v1 04.2020
 # <widget render="parentalEvent" source="session.Event_Now" position="0,0" size="60,60" alphatest="blend" zPosition="2" transparent="1" />
-from Renderer import Renderer
+from Components.Renderer.Renderer import Renderer
 from enigma import ePixmap, eTimer, loadPNG
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN
 import re
