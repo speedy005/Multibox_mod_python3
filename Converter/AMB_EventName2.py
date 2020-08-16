@@ -98,7 +98,7 @@ class AMB_EventName2(Converter, object):
             return event.getShortDescription()
         elif self.type is self.EXTENDED_DESCRIPTION:
             text = event.getShortDescription()
-            if text and not text[-1] is'\n' and not text[-1] is ' ':
+            if text and text[-1] !='\n' and text[-1] != ' ':
                 text += ' '
             text = text + event.getExtendedDescription() or event.getEventName()
             if 'EPG-SAT.DE' in text:

@@ -23,7 +23,7 @@ class AMB_AudioIcon(Renderer):
 				else:
 					self.path = value + "/"
 			else:
-				attribs.append((attrib,value))
+				attribs.append((attrib, value))
 			if attrib == "size":
 				value = value.split(",")
 				if len(value) == 2:

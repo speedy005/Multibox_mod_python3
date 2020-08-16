@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # by digiteng...12-2019
 #  <widget source="session.Event_Now" render="Label" position="50,545" size="930,40" font="Regular; 32" halign="left" transparent="1" zPosition="2" backgroundColor="back_color" valign="center">
-#   	<convert type="FroidEvent">SESSION_EPISODE,RATING,YEAR,GENRE</convert>
+#   <convert type="FroidEvent">SESSION_EPISODE,RATING,YEAR,GENRE</convert>
 # </widget>
 from Components.Converter.Converter import Converter
 from Components.Element import cached
@@ -21,7 +21,7 @@ class AMB_Event(Converter, object):
 		try:
 			for type in self.tip: 
 				type.strip()
- 				if type == "SESSION_EPISODE":
+				if type == "SESSION_EPISODE":
 					ses_ep = self.sessionEpisode(event)
 					if ses_ep != "" and len(ses_ep) > 0:
 						evnt.append(ses_ep)
@@ -57,7 +57,7 @@ class AMB_Event(Converter, object):
 		for i in pattern:
 			seg = re.search(i, fd)
 			if seg:
-				if re.search("Episodio",i):
+				if re.search("Episodio", i):
 					return "S"+seg.group(2).zfill(2)+"E"+seg.group(1).zfill(2)
 				else :
 					return "S"+seg.group(1).zfill(2)+"E"+seg.group(2).zfill(2)

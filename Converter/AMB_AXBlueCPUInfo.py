@@ -16,10 +16,10 @@ class AMB_AXBlueCPUInfo(Converter, object):
 		
 		self.percentlist = [ ]
 		self.pfmt = "%3d%%"
-		if not type or type is "Total":
+		if not type or type == "Total":
 			self.type = self.CPU_TOTAL
 			self.sfmt = "CPU: $0"
-		elif len(type) is 1 and type[0].isdigit():
+		elif len(type) == 1 and type[0].isdigit():
 			self.type = int(type)
 			self.sfmt = "$" + type
 			self.pfmt = "%d"
@@ -31,7 +31,7 @@ class AMB_AXBlueCPUInfo(Converter, object):
 				pos = 0
 				while True:
 					pos = self.sfmt.find("$", pos)
-					if pos is -1: break
+					if pos == -1: break
 					if pos < len(self.sfmt)-1 and \
 					   self.sfmt[pos+1].isdigit() and \
 					   int(self.sfmt[pos+1]) > cpus:
@@ -91,7 +91,7 @@ class CpuUsageMonitor(Poll, object):
 		try:
 			fd = open("/proc/stat", "r")
 			for l in fd:
-				if l.find("cpu") is 0:
+				if l.find("cpu") == 0:
 					total = busy = 0
 					# tmp = [cpu, usr, nic, sys, idle, iowait, irq, softirq, steal]
 					tmp = l.split()

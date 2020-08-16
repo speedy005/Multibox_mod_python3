@@ -66,7 +66,7 @@ class AMBClockToText(Converter, object):
             if 'Proportional' in self.fix and t.tm_hour < 10:
                 return ' ' + string
             if 'NoSpace' in self.fix:
-                return string.lstrip(' ')
+                return ' '.lstrip()
             return string
 
         if self.type == self.IN_MINUTES:

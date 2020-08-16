@@ -409,7 +409,7 @@ class AMB_Base(Poll, Converter, object):
 		if os.path.exists("/proc/stb/vmpeg/0/xres"):
 			with open("/proc/stb/vmpeg/0/xres", "r") as w:
 				try:
-					width = int(w.read(),16)
+					width = int(w.read(), 16)
 				except:
 					pass
 		if (width > 0) and not (width == 4294967295):
@@ -422,7 +422,7 @@ class AMB_Base(Poll, Converter, object):
 		if os.path.exists("/proc/stb/vmpeg/0/yres"):
 			with open("/proc/stb/vmpeg/0/yres", "r") as h:
 				try:
-					height = int(h.read(),16)
+					height = int(h.read(), 16)
 				except:
 					pass
 		if (height > 0) and not (height == 4294967295):
@@ -435,7 +435,7 @@ class AMB_Base(Poll, Converter, object):
 		if os.path.exists("/proc/stb/vmpeg/0/progressive"):
 			with open("/proc/stb/vmpeg/0/progressive", "r") as prog:
 				try:
-					progrs = "p" if int(prog.read(),16) else "i"
+					progrs = "p" if int(prog.read(), 16) else "i"
 				except:
 					pass
 		return progrs
@@ -533,7 +533,7 @@ class AMB_Base(Poll, Converter, object):
 
 	def t2mi_info(self, tpinfo):
 		try:
-			t2mi_id = str(tpinfo.get("t2mi_plp_id",-1))
+			t2mi_id = str(tpinfo.get("t2mi_plp_id", -1))
 			t2mi_pid = str(tpinfo.get("t2mi_pid"))
 			if t2mi_id == "None" or t2mi_id == "-1" or t2mi_pid == "0":
 				t2mi_id = ""

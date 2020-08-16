@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with th4ATV_2_2_speedy_blue program. If not, see <http://www.gnu.org/licenses/>.
 #
-from Renderer import Renderer
+from Components.Renderer.Renderer import Renderer
 from enigma import ePixmap, eTimer, eDVBVolumecontrol
 from Components.config import config
 

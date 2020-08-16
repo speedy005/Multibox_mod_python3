@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # by digiteng...04.2020 - 08,2020
 # <widget source="session.Event_Now" render="xtraBackdrop" delayPic="500" position="0,0" size="300,169" zPosition="1" />
-from Renderer import Renderer
+from Components.Renderer.Renderer import Renderer
 from enigma import ePixmap, ePicLoad, eTimer, eEPGCache
 from Components.AVSwitch import AVSwitch
 from Components.Pixmap import Pixmap

@@ -206,7 +206,7 @@ class AMB_test_ServiceInfoEX(Poll, Converter, object):
 
 	@cached
 	def getText(self):
-		self.stream = { 'apid':"N/A", 'vpid':"N/A", 'sid':"N/A", 'onid':"N/A", 'tsid':"N/A", 'prcpid':"N/A", 'caids':"FTA", 'pmtpid':"N/A", 'txtpid':"N/A", 'xres':" ", 'yres':" ", 'gamma':" ", 'atype':" ", 'vtype':" ", 'avtype':" ", 'fps':" ", 'tbps':" ", 'vsize':" ",}
+		self.stream = { 'apid': "N/A", 'vpid': "N/A", 'sid': "N/A", 'onid': "N/A", 'tsid': "N/A", 'prcpid': "N/A", 'caids': "FTA", 'pmtpid': "N/A", 'txtpid': "N/A", 'xres': " ", 'yres': " ", 'gamma': " ", 'atype': " ", 'vtype': " ", 'avtype': " ", 'fps': " ", 'tbps': " ", 'vsize': " ",}
 		streaminfo = ""
 		array_caids = []
 		service = self.source.service
@@ -244,7 +244,7 @@ class AMB_test_ServiceInfoEX(Poll, Converter, object):
 		audio = service.audioTracks()
 		if audio:
 			if audio.getCurrentTrack() > -1:
-				self.stream['atype'] = str(audio.getTrackInfo(audio.getCurrentTrack()).getDescription()).replace(",","")
+				self.stream['atype'] = str(audio.getTrackInfo(audio.getCurrentTrack()).getDescription()).replace(",", "")
 		self.stream['vtype'] = codec_data[info.getInfo(iServiceInformation.sVideoType)]
 		self.stream['avtype'] = self.stream['vtype'] + '/' + self.stream['atype']
 		if self.getServiceInfoString(info, iServiceInformation.sFrameRate, lambda x: "%d" % ((x+500)/1000)) != "N/A":
@@ -255,13 +255,13 @@ class AMB_test_ServiceInfoEX(Poll, Converter, object):
 		if self.tpdata:
 			self.stream['ttype'] = self.tpdata.get('tuner_type', '')
 			if self.stream['ttype'] == 'DVB-S' and service.streamed() is None:
-				if self.tpdata.get('system', 0) is 1:
+				if self.tpdata.get('system', 0) == 1:
 					self.stream['ttype'] = 'DVB-S2'
 			elif self.stream['ttype'] == 'DVB-C' and service.streamed() is None:
-				if self.tpdata.get('system', 0) is 1:
+				if self.tpdata.get('system', 0) == 1:
 					self.stream['ttype'] = 'DVB-C2'
 			elif self.stream['ttype'] == 'DVB-T' and service.streamed() is None:
-				if self.tpdata.get('system', 0) is 1:
+				if self.tpdata.get('system', 0) == 1:
 					self.stream['ttype'] = 'DVB-T2'
 		else:
 			self.stream['ttype'] = 'IP-TV'
@@ -401,27 +401,27 @@ class AMB_test_ServiceInfoEX(Poll, Converter, object):
 				return True
 		elif self.type == self.IS_SATELLITE_S:
 			if type == 'DVB-S' and service.streamed() is None:
-				if self.tpdata.get('system', 0) is 0:
+				if self.tpdata.get('system', 0) == 0:
 					return True
 		elif self.type == self.IS_SATELLITE_S2:
 			if type == 'DVB-S' and service.streamed() is None:
-				if self.tpdata.get('system', 0) is 1:
+				if self.tpdata.get('system', 0) == 1:
 					return True
 		elif self.type == self.IS_CABLE_C:
 			if type == 'DVB-C' and service.streamed() is None:
-				if self.tpdata.get('system', 0) is 0:
+				if self.tpdata.get('system', 0) == 0:
 					return True
 		elif self.type == self.IS_CABLE_C2:
 			if type == 'DVB-C' and service.streamed() is None:
-				if self.tpdata.get('system', 0) is 1:
+				if self.tpdata.get('system', 0) == 1:
 					return True
 		elif self.type == self.IS_TERRESTRIAL_T:
 			if type == 'DVB-T' and service.streamed() is None:
-				if self.tpdata.get('system', 0) is 0:
+				if self.tpdata.get('system', 0) == 0:
 					return True
 		elif self.type == self.IS_TERRESTRIAL_T2:
 			if type == 'DVB-T' and service.streamed() is None:
-				if self.tpdata.get('system', 0) is 1:
+				if self.tpdata.get('system', 0) == 1:
 					return True
 		return False
 	boolean = property(getBoolean)

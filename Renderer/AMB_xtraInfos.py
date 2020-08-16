@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # by digiteng...05.2020
 # <widget render="infoEvent" source="session.Event_Now" position="244,360" size="300,130" font="Regular; 14" halign="left" valign="top" zPosition="1" foregroundColor="foreground" backgroundColor="background" transparent="0" />
-from Renderer import Renderer
+from Components.Renderer.Renderer import Renderer
 from Components.VariableText import VariableText
 from enigma import eLabel, eTimer
 

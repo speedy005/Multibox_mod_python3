@@ -14,19 +14,22 @@
 #    GNU General Public License for more details.
 #    
 #######################################################################
-from Renderer import Renderer 
+from Components.Renderer.Renderer import Renderer 
 from enigma import ePixmap, eTimer, eActionMap
 from Components.config import config
 import os
 import re
 import json
-import urllib2
 try:
 	from urllib import quote_plus
 except ImportError as ie:
 	from urllib.parse import quote_plus
 
 from enigma import loadJPG
+
+from six.moves import urllib
+
+
 ENA = True
 	
 PATH = "/media/usb"
@@ -55,7 +58,7 @@ class AMB_test_Poster(Renderer):
 			self.__delayInitTimer_conn = self.__delayInitTimer.timeout.connect(self.searchPoster)
 		except AttributeError:
 			self.__delayInitTimer.timeout.get().append(self.searchPoster)
- 		self.enaExc = False
+		self.enaExc = False
 	GUI_WIDGET = ePixmap
 
 	def doRC(self, key, flag):
@@ -67,13 +70,13 @@ class AMB_test_Poster(Renderer):
 					ff = PATH + '/_exceptions.txt'
 					all = ""
 					if os.path.isfile(ff):
-						f = open(ff,"r")
+						f = open(ff, "r")
 						for i in f.readlines():
 							if not self.image in i:
 								all += i
 						f.close()
 					all += self.image + "\n"
-					f = open(ff,"w")
+					f = open(ff, "w")
 					f.write(all)
 					f.close()
 					self.showPoster(None)
@@ -95,14 +98,14 @@ class AMB_test_Poster(Renderer):
 					self.__delayInitTimer.stop()
 				self.last = name
 				p = '((.*?)) \([T](\d+)\)'
-				f = re.search(p,name)
+				f = re.search(p, name)
 				if f:
 					name = f.group(1)
-				image = name.replace(':',' ').replace('.',' ').replace('(',' ').replace(')',' ')
+				image = name.replace(':', ' ').replace('.', ' ').replace('(', ' ').replace(')', ' ')
 				if ' -' in image:
 					image = image.split(' -')[0]
 				if '"' in image:
-					image = (image.split('"')[1]).replace('"','')
+					image = (image.split('"')[1]).replace('"', '')
 				image = image.strip()
 				image = re.sub('\s+', '+', image)
 				dest = FULLPATH % image
@@ -110,7 +113,7 @@ class AMB_test_Poster(Renderer):
 				if self.enaExc:
 					ff = PATH + '/_exceptions.txt'
 					if os.path.isfile(ff):
-						f = open(ff,"r").read()
+						f = open(ff, "r").read()
 						if f.find(self.image) != -1:
 							self.showPoster(None)
 							return
@@ -154,8 +157,8 @@ class AMB_test_Poster(Renderer):
 			return None
 		def downNow(w):
 			try:
-				f = open(dest,'wb')
-				f.write(urllib2.urlopen(w).read())
+				f = open(dest, 'wb')
+				f.write(urllib.request.urlopen(w).read())
 				f.close()
 				if os.path.isfile(dest):
 					if os.path.getsize(dest) > 50:
@@ -169,7 +172,7 @@ class AMB_test_Poster(Renderer):
 				data = ""
 				info = ""
 				url = None
-				if imdb in ("a","i"):
+				if imdb in ("a", "i"):
 					infomask = re.compile(
 							'<h1 class="(?:long|)">(?P<title>.*?)<.*?/h1>*'
 							'(?:.*?<div class="originalTitle">(?P<originaltitle>.*?)\s*\((?P<g_originaltitle>original title))*'
@@ -183,28 +186,28 @@ class AMB_test_Poster(Renderer):
 							, re.S)
 					htmlmask = re.compile('<.*?>')
 					resultmask = re.compile('<tr class=\"findResult (?:odd|even)\">.*?<td class=\"result_text\"> <a href=\"/title/(tt\d{7,7})/.*?\"\s?>(.*?)</a>.*?</td>', re.S)
-					data = urllib2.urlopen("https://www.imdb.com/find?ref_=nv_sr_fn&q=" + quote_plus(image, safe='+') + "&s=all").read()
+					data = urllib.request.urlopen("https://www.imdb.com/find?ref_=nv_sr_fn&q=" + quote_plus(image, safe='+') + "&s=all").read()
 					info = infomask.search(data)
 					if info:
 						url = chckUrl(data)
 					else:
 						if not re.search('class="findHeader">No results found for', data):
 							a = data.find("<table class=\"findList\">")
-							b = data.find("</table>",a)
+							b = data.find("</table>", a)
 							all = data[a:b]
 							all_res = resultmask.finditer(all)
-							res = [(htmlmask.sub('',x.group(2)), x.group(1)) for x in all_res]
+							res = [(htmlmask.sub('', x.group(2)), x.group(1)) for x in all_res]
 							if len(res) > 0:
-								data = urllib2.urlopen("https://www.imdb.com/title/" + res[0][1]).read()
+								data = urllib.request.urlopen("https://www.imdb.com/title/" + res[0][1]).read()
 								info = infomask.search(data)
 								if info:
 									url = chckUrl(data)
 					if url:
 						url = downNow(url)
-				if imdb in ("a","m") and url is None:
-					for x in ("multi","tv"):
-						data = json.load(urllib2.urlopen("https://api.themoviedb.org/3/search/%s?api_key=87241fc3a18a22a33f8ce28edf4e796a&query=%s&language=de-DE" % (x, image)))
-						if data.has_key('results') and len(data['results']) != 0 and data['total_results'] != 0:
+				if imdb in ("a", "m") and url is None:
+					for x in ("multi", "tv"):
+						data = json.load(urllib.request.urlopen("https://api.themoviedb.org/3/search/%s?api_key=87241fc3a18a22a33f8ce28edf4e796a&query=%s&language=de-DE" % (x, image)))
+						if 'results' in data and len(data['results']) != 0 and data['total_results'] != 0:
 							url = downNow("https://image.tmdb.org/t/p/w185_and_h278_bestv2%s" % data['results'][0]['poster_path'])
 							if url is not None:
 								break
